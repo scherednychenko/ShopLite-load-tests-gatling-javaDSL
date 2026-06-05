@@ -1,0 +1,29 @@
+# One-command demo: mock backend + Gatling (Java) + HTML report.
+#
+#   docker compose up --build
+#
+# Gatling waits for the mock to be healthy, runs the simulation against it, and
+# writes its rich HTML report to ./results/<simulation>-<timestamp>/index.html.
+services:
+  mock:
+    build: ./mock
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/api/catalog')"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+  gatling:
+    build:
+      context: .
+      dockerfile: gatling/Dockerfile
+    depends_on:
+      mock:
+        condition: service_healthy
+    environment:
+      - BASE_URL=http://mock:8080
+      - CART_SIZE=10
+      - VUS=10
+    volumes:
+      - ./results:/results
+    command: ["-rm", "local", "-s", "ShopLiteSimulation", "-rf", "/results", "-rd", "ShopLite Gatling (Java) demo"]

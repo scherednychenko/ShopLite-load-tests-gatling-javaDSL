@@ -1,0 +1,7 @@
+.git
+.gitignore
+results
+*.log
+docs
+README.md
+LICENSE
