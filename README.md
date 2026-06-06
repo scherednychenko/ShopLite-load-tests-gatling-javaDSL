@@ -42,3 +42,16 @@ report to `results/shoplitesimulation-<timestamp>/index.html`.
 - Endpoints are placeholders; the mock returns the minimal contract (`cartId`/`orderId`) so the journey runs green.
 - The mock's latencies are illustrative only — this demonstrates the tooling and reporting, not real system performance.
 - Gatling generates its standard interactive HTML report (per-request stats, percentiles, distribution charts).
+
+## One scenario, five tools
+
+The same ShopLite journey (browse → add-to-cart → checkout) is implemented across five
+load-testing tools — each as a one-command Dockerized demo with an HTML report:
+
+| Tool | Language / DSL | SLOs as | Report | Repo |
+|---|---|---|---|---|
+| Apache JMeter | XML + Groovy | Assertions | HTML dashboard | [ShopLite-load-tests](https://github.com/scherednychenko/ShopLite-load-tests) |
+| Grafana k6 | JavaScript | Thresholds | HTML report | [ShopLite-load-tests-k6](https://github.com/scherednychenko/ShopLite-load-tests-k6) |
+| Locust | Python | Code-level checks | Built-in HTML | [ShopLite-load-tests-locust](https://github.com/scherednychenko/ShopLite-load-tests-locust) |
+| Gatling | Scala DSL | Assertions | HTML charts | [ShopLite-load-tests-gatling-scala](https://github.com/scherednychenko/ShopLite-load-tests-gatling-scala) |
+| Gatling | Java DSL | Assertions | HTML charts | [ShopLite-load-tests-gatling-javaDSL](https://github.com/scherednychenko/ShopLite-load-tests-gatling-javaDSL) |
