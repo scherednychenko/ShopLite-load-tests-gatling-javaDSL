@@ -38,6 +38,12 @@ report to `results/shoplitesimulation-<timestamp>/index.html`.
 ### Tunable via env vars
 `BASE_URL`, `VUS`, `CART_SIZE` (set in `docker-compose.yml`).
 
+## Sample report
+
+A run against the local mock backend (all green):
+
+![Gatling (Java) HTML report — assertions green, KO=0](docs/img/sample_report.png)
+
 ## Notes
 - Endpoints are placeholders; the mock returns the minimal contract (`cartId`/`orderId`) so the journey runs green.
 - The mock's latencies are illustrative only — this demonstrates the tooling and reporting, not real system performance.
