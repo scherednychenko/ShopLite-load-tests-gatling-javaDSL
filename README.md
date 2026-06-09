@@ -9,6 +9,8 @@ This repo is part of a small series implementing the *same* scenario in differen
 (JMeter, k6, Locust, Gatling). A [Scala DSL variant](https://github.com/scherednychenko/ShopLite-load-tests-gatling-scala)
 of this exact simulation exists for a Scala-vs-Java comparison.
 
+> 💡 **The script is the easy part.** The real value is knowing *what* to test, shaping the load model, reading the results, and turning them into a go/no-go call — judgment a demo can't capture.
+
 ## Contents
 - `gatling/simulations/ShopLiteSimulation.java` — the simulation: 3 transactions, feeders, SLO assertions
 - `gatling/Dockerfile` — Gatling 3.10.5 bundle image (compiles the simulation at run time)
