@@ -14,6 +14,7 @@ of this exact simulation exists for a Scala-vs-Java comparison.
 > **Note.** This is a personal portfolio project — a from-scratch reconstruction
 > built entirely on public, open-source tools against a fictional storefront. It is
 > not affiliated with, and contains no material from, any employer or client.
+
 ## Contents
 - `gatling/simulations/ShopLiteSimulation.java` — the simulation: 3 transactions, feeders, SLO assertions
 - `gatling/Dockerfile` — Gatling 3.10.5 bundle image (compiles the simulation at run time)
